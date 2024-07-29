@@ -1,0 +1,68 @@
+#include <iostream>
+#include <random>
+#include <string>
+using namespace std;
+void score(string player1,string player2,string player3, int a1, int b1 ,int c1){
+    cout<<player1<<" (point): "<<a1<<endl;
+    cout<<player2<<" (point): "<<b1<<endl;
+    cout<<player3<<" (point): "<<c1<<endl;
+    return;
+}
+
+
+
+void colour(string player1,string player2,string player3 ,int a1,int b1,int c1){
+    string word1,word2;
+    cout << player1<<", enter your word: ";
+    cin>> word1;
+    cout<<player2<<", enter your word: ";
+    cin>>word2;
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<> dis(0, 1);
+    int winner = dis(gen);
+    int a;
+    int b;
+    cout<<player1<<" (point): ";
+    cin>>a;
+    cout<<player2<<" (point): ";
+    cin>>b;
+    if (winner == 0) {
+        cout <<player1 <<" wins with the word: " << word1 <<endl;
+        score(player1,player2,player3,a1+a,b1-b,c1-a+b);
+        a1=a1+a;
+        b1=b1-b;
+        c1=c1-a+b;
+        colour(player1,player2,player3,a1,b1,c1);
+        
+    } else {
+        cout << player2<<" wins with the word: " << word2 <<endl;
+        score(player1,player2,player3,a1-a,b1+b,c1+a-b);
+        a1=a1-a;
+        b1=b1+b;
+        c1=c1+a-b;
+        colour(player1,player2,player3,a1,b1,c1);
+        
+    }
+    // string msg;
+    // cin>>msg;
+    // if(msg=="no"){
+    //     return;
+    // }
+    return;
+    
+}
+int main() {
+    string player1, player2, player3;
+    cout<<"player 1: ";
+    cin>>player1;
+    cout<<"player 2: ";
+    cin>>player2;
+    cout<<"player 3: ";
+    cin>>player3;
+    int a1=10;
+    int b1=10;
+    int c1=10;
+    colour(player1,player2,player3,a1,b1,c1);
+    cout<<"done";
+}

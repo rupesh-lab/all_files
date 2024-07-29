@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+
+float inflation(float n1, float i) {
+    float a = i / 100.0;
+    return n1 * (1 + a);
+}
+
+float increment(float n, float r) {
+    float a = r / 100.0;
+    return n * (1 + a);
+}
+
+void future(float n2,float n, float n1, float year, float r, float i, int ans) {
+    if(year == 0) {
+        cout << "done" << endl;
+        return;
+    }
+    cout << ans << " year: ";
+    n = increment(n, r);
+    n1 = inflation(n1, i);
+    cout <<int(n) << " , ";
+    cout <<int(n1) << " , ";
+    float b=(n2*n)/n1;
+    cout<<int(b)<<endl;
+    future(n2,n, n1, year - 1, r, i, ans + 1);
+}
+
+int main() {
+    float n, year, r, i;
+    cout << "Enter amount: ";
+    cin >> n;
+    float n2=n;
+    float n1 = n; // n1 should be initialized correctly
+    cout << "Enter years: ";
+    cin >> year;
+    cout << "Enter rate of increment: ";
+    cin >> r;
+    cout << "Enter rate of inflation: "; // Add this input for the inflation rate
+    cin >> i;
+    int ans = 1;
+    cout << "0 Year: " << n << endl;
+    future(n2,n, n1, year, r, i, ans);
+}

@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+void check(int arr[],int size, int target,int i,int j){
+    while(i<size){
+        int ans=arr[i];
+        while(j<size){
+            int a=ans+arr[j];
+            if(a==target){
+                cout<<"target found"<<endl;
+                return;
+            }
+            j=j+1;
+        }
+        i=i+1;
+    }
+    cout<<"target not found"<<endl;
+}
+    // for(int i=0; i<size; i++){
+    //     int ans=arr[i];
+    //     for(int j=0; j<size; j++){
+    //         int a=ans+arr[j];
+    //         if(a==target){
+    //             cout<<"Target found"<<endl;
+    //             cout<<i<<", "<<j<<endl;
+    //             check()
+    //             return;
+    //         }
+    //     }
+    // }
+    // cout<<"Target not found"<<endl;
+    
+
+
+int main() {
+    int arr[5]={1,2,3,4,5};
+    int size=5;
+    int target;
+    cin>>target;
+    int i=0;
+    int j=0;
+    check(arr,size,target,i,j);
+}

@@ -1,0 +1,28 @@
+#include <iostream>
+#include <random>
+#include <string>
+using namespace std;
+int main() {
+    string a;
+    string b;
+    cout<<"player 1: ";
+    cin>>a;
+    cout<<"player 2: ";
+    cin>>b;
+    std::string word1, word2;
+    std::cout <<a <<" enter your colour: ";
+    std::cin >> word1;
+    std::cout <<b <<" enter your colour: ";
+    std::cin >> word2;
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> dis(0, 1);
+    int winner = dis(gen);
+    
+    if (winner == 0) {
+        std::cout <<a <<" wins the colour: " << word1 << std::endl;
+    } else {
+        std::cout <<b << " wins with the word: " << word2 << std::endl;
+    }
+    
+}
