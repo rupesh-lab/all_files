@@ -1,0 +1,17 @@
+#include <iostream>
+#include <unordered_map>
+#include <vector>
+using namespace std;
+int main() {
+    vector<int> arr={1,2,3,4,5};
+    unordered_map<int,int> count;
+    m["rupesh"]=4;
+    m["kumar"]=3;
+    m.clear("kumar");
+    for(auto i:m){
+        cout<<i.first<<" , "<<i.second<<endl;
+    }
+    int min=INT_MAX;
+    int ans=-1;
+    for(auto i:m)
+}

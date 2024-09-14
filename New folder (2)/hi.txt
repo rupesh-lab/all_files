@@ -1,0 +1,14 @@
+      INT MAIN DATA:
+number of nodes
+adjList define
+adjList add
+all nodes: visited(false)
+call the BFS function
+required: visited function, adjList, startnode
+
+AFTER CALLING: 
+queue formation, queue push(startnode)
+ 
+DO TILL QUEUE IS NOT EMPTY:
+queue ke front element ke neighbour ko dundho
+and dehko ki vo visited hai ya nhi 

@@ -1,0 +1,57 @@
+#include <iostream>
+#include <stack>
+using namespace std;
+
+void col(stack<int>& A, stack<int>& B, stack<int>& C) {
+    // If stack A is empty, stop further processing
+    if (A.empty()) {
+        cout << "Stack A is empty. Ending recursion." << endl;
+        return;
+    }
+
+    string a;
+    cout << "Enter (B/C): ";
+    cin >> a;
+
+    if (a == "B") {
+        int e = A.top();
+        B.push(e);
+        A.pop();
+    } 
+    else if (a == "C") {
+        int e = A.top();
+        C.push(e);
+        A.pop();
+    } 
+    else {
+        cout << "size of A: " << A.size() << endl;
+        cout << "size of B: " << B.size() << endl;
+        cout << "size of C: " << C.size() << endl;
+        return;
+    }
+    if (!A.empty()) {
+        cout << "Top element of A is: " << A.top() << endl;
+    }
+    if (!B.empty()) {
+        cout << "Top element of B is: " << B.top() << endl;
+    }
+    if (!C.empty()) {
+        cout << "Top element of C is: " << C.top() << endl;
+    }
+
+    col(A, B, C);
+}
+
+int main() {
+    stack<int> A;
+    stack<int> B;
+    stack<int> C;
+
+    A.push(5);
+    A.push(4);
+    A.push(3);
+    A.push(2);
+    A.push(1);
+
+    col(A, B, C);
+}

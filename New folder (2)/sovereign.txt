@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+void go(int arr[], int n, int pointer){
+    if(arr[pointer]==0){
+        go
+    }
+}
+void cycle(int arr[], int n, int pointer){
+    cout<<"Pointer: "<<pointer<<endl;
+    if(pointer>=n){
+        for(int i=0; i<n; i++){
+            cout<<arr[i]<<" ";
+        }
+        pointer=pointer-n;
+        
+        return;
+    }
+    go(arr,n,pointer);
+    if(arr[pointer]==0){
+        
+    }
+    arr[pointer]=0;
+    cycle(arr, n, pointer+2);
+}
+int main(){
+    int arr[50];
+    int n;
+    cin>>n;
+    for(int i=0; i<n; i++){
+        cin>>arr[i];
+    }
+    for(int i=0; i<n; i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+    int pointer=1;
+    cycle(arr, n, pointer);
+}
